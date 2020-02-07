@@ -1,0 +1,38 @@
+@import 'reset';
+
+/* Natural box layout model to all elements*/
+html {
+  box-sizing: border-box;
+  background-color: black;
+  color: white;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/* Basic Typography*/
+html,body {
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  
+}
+.header-container{
+  margin: 5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: space-between;
+  text-align: center;
+}
+img{
+  margin-bottom: 2rem;
+}
+select{
+  background-color: white;
+  font-size: 1rem;
+  width: 6rem;
+  margin: 2rem auto 2rem auto;
+  
+  
+}
