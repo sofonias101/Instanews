@@ -1,36 +1,80 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const getNews = document.getElementById('get-topstories');
+  const content = document.getElementById('content');
   const selectElement = document.querySelector('.selection');
+
+
+
 
   selectElement.addEventListener('change', function (event) {
     //const news = document.querySelector('.news');
     console.log(event.target.value);
     let category = event.target.value;
+
     $.ajax({
       method: 'GET',
       url: 'https://api.nytimes.com/svc/topstories/v2/' + category + '.json?api-key=ZUL0U1pMKIvzUnE4phUsABtv44ByJAKF'
     })
-      .done(function (data) {
-        console.log(data);
+      .done(
+        function (data) {
+          // get data from Ajax call
+          console.log('data', data);
 
-        const item = document.createElement('div');
-        item.style.backgroundImage = `url(${data.results[0].multimedia[0].url})`;
-        item.classList.add("content-container")
-        document.getElementById('content').appendChild(item);
+          const content = document.getElementById('content');
+
+          function checkForImage(item) {
+            if (item.multimedia && item.multimedia.length && item.multimedia[0].url) {
+              return true;
+            } else {
+              return false;
+            }
+          }
+
+          //Only get articles with image
+          //Only get 12 max articles
+          const articlesWithImages = data.results
+            .filter(checkForImage)
+            .slice(0, 12);
+
+          console.log('articlesWithImages', articlesWithImages)
 
 
-      })
-    data.forEach(element => {
-
-    });
-
-  }
+          //build thumbnails
+          for (let i = 0; i < articlesWithImages.length; i++) {
+            //console.log("for loop")
 
 
+            const link = document.createElement('a');
+            link.href = articlesWithImages[i].url;
+
+            const thumb = document.createElement('div');
+            // a string with url('{variable name}')
+            thumb.style.backgroundImage = `url(${articlesWithImages[i].multimedia[0].url})`;
+
+            const text = document.createElement('p');
+            text.innerText = articlesWithImages[i].abstract;
+
+            thumb.append(text);
+            link.append(thumb);
+
+            // text.classList.add("content-container");
+            content.append(link);
 
 
-  });
+          }
 
 
-});
+
+
+
+
+          // item.classList.add("content-container");
+          // document.getElementById('content').appendChild(item, text, link);
+
+
+
+
+        }
+      ); // end ajax
+  }); // end addevent listener change
+}); // end on DOM
 
