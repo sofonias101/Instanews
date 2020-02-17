@@ -47,24 +47,27 @@ select{
   grid-template-rows: 1fr 1fr ;
   
 }
+
 .grid-item {
-  display: block;
+ 
+  display: flex;
+  height: 150px;
 
-
-
-  .image{
+  .image {
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 900px;
+    min-height: 5px;
     width: 100%; 
     display: flex;
     align-items: flex-end;
+    
 
-    p {
+    .ptext {
       color: white;
       background-color: rgba(0, 0, 0, 0.5);
       width: 100%;
-      padding: 1rem;
+      padding: 1rem;      
+
 
     }
   }
