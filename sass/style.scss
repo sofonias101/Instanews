@@ -1,10 +1,39 @@
 @import 'reset';
+@import 'mixins';
+@import 'variables';
+
+//Mixins
+@mixin desktop {
+  @media (min-width: 1250px) {
+   
+  }
+
+}@mixin tablet {
+  @media (min-width: 380px) {
+    .header-container{
+      display: flex;
+      margin: 15rem;
+     
+    }
+    p {
+      margin-top: 5rem;
+    }
+    img{
+      margin-left: 10rem;
+      
+    }
+    select{
+      
+    }
+    
+  }
+}
 
 /* Natural box layout model to all elements*/
 html {
   box-sizing: border-box;
   background-color: black;
-  color: white;
+  color: $primary-color;
 }
 
 
@@ -15,8 +44,8 @@ html {
 }
 /* Basic Typography*/
 html,body {
-  font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
+  font-size: $font-size;
+  font-family: $brand-font;
   
 }
 .header-container{
@@ -32,8 +61,8 @@ img{
   
 }
 select{
-  background-color: white;
-  font-size: 1rem;
+  background-color: $primary-color;
+  font-size: $font-size;
   width: 6rem;
   margin: 2rem auto ;
   
@@ -45,25 +74,30 @@ select{
 .content-grid {
   display: inline-grid;
   grid-template-rows: 1fr 1fr ;
-  
+  width: 100%;
 }
 
 .grid-item {
  
   display: flex;
-  height: 150px;
+  width: 100%;
+  object-fit: fill;
+  
 
   .image {
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 5px;
-    width: 100%; 
+    min-height: 900px;
+    object-fit: fill;
+    width: 100%;
     display: flex;
     align-items: flex-end;
+    object-fit:cover ;
+    
     
 
     .ptext {
-      color: white;
+      color: $primary-color;
       background-color: rgba(0, 0, 0, 0.5);
       width: 100%;
       padding: 1rem;      
@@ -76,9 +110,11 @@ select{
 
 .footer {
   display: grid;
+  color: $secondary-color;
   
 }
 .copyright {
   text-align: center;
   margin:6rem auto ;
 }
+

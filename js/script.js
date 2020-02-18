@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+
   selectElement.addEventListener('change', function (event) {
     console.log(event.target.value);
     let category = event.target.value;
@@ -64,6 +66,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
           }
+
+
+
+
+
           // // //adding classes to elements
           // const linkClass = document.getElementById('content');
           // linkClass.classList.add('news');
@@ -79,8 +86,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-        }
-      ); // end ajax
-  }); // end addevent listener change
-}); // end on DOM
+
+        }); // end ajax
+  });   // end addevent listener change
+});   // end on DOM
 

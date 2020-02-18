@@ -1,0 +1,18 @@
+Project 3
+Instanews App
+
+About
+
+This app is news app that feeds 12 top stories from the NY Times API, when the user selects catagory of interest.
+
+Technolgy Used
+
+HTML
+CSS/Sass
+JavaScript
+JSON
+Node Modules
+
+Personal Learnings
+
+This projected helped me understand how API works and how you can munipulate certain content from its source and set it to your Personal liking.
