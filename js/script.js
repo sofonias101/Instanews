@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
   selectElement.addEventListener('change', function (event) {
     console.log(event.target.value);
     let category = event.target.value;
+    content.innerHTML = '';
 
     $.ajax({
       method: 'GET',
