@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const content = document.getElementById('content');
-  const selectElement = document.querySelector('.selection');
+  const selectElement = document.querySelector('.selection')
+
 
 
 
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     $.ajax({
       method: 'GET',
-      url: 'https://api.nytimes.com/svc/topstories/v2/' + category + '.json?api-key=ZUL0U1pMKIvzUnE4phUsABtv44ByJAKF'
+      url: `https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=ZUL0U1pMKIvzUnE4phUsABtv44ByJAKF`
     })
 
       .done(
