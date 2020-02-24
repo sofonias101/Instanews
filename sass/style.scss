@@ -2,32 +2,7 @@
 @import 'mixins';
 @import 'variables';
 
-//Mixins
-@mixin desktop {
-  @media (min-width: 1250px) {
-   
-  }
 
-}@mixin tablet {
-  @media (min-width: 380px) {
-    .header-container{
-      display: flex;
-      margin: 15rem;
-     
-    }
-    p {
-      margin-top: 5rem;
-    }
-    img{
-      margin-left: 10rem;
-      
-    }
-    select{
-      
-    }
-    
-  }
-}
 
 /* Natural box layout model to all elements*/
 html {
@@ -71,11 +46,22 @@ select{
 .text {
   width: 100%;
 }
+
 .content-grid {
-  display: inline-grid;
-  grid-template-rows: 1fr 1fr ;
-  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: .5rem;
+  grid-template-columns: 1fr;
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+      }
+        
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+      }
 }
+
 
 .grid-item {
  
@@ -116,5 +102,9 @@ select{
 .copyright {
   text-align: center;
   margin:6rem auto ;
+}
+
+a {
+  text-decoration: none;
 }
 
